@@ -3,7 +3,9 @@
     align-items: center;
     font-family: 'Rajdhani';
     font-weight: 600;
-    color: var(--title)
+    color: var(--title);
+    user-select: none;
+
 }
 
 .countdownContainer > div{
@@ -17,7 +19,6 @@
     border-radius: 5px;
     font-size: 8.5rem;
     text-align: center;
-    user-select: none;
 }
 
 .countdownContainer > div span{

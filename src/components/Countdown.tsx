@@ -1,9 +1,13 @@
+import { useContext, useEffect, useState } from 'react';
+
 import styles from '../styles/components/Countdown.module.css';
-import { useEffect, useState } from 'react';
+
+import { ChallengesContext } from '../contexts/ChallengesContext';
 
 let countdownTimeout: NodeJS.Timeout;
 
-export function Countdown() {
+export default function Countdown() {
+  const { startNewChallenge } = useContext(ChallengesContext);
   const POMODORO_TIME_SECONDS = 0.1 * 60;
   const [time, setTime] = useState(POMODORO_TIME_SECONDS);
   const [isActive, setIsActive] = useState(false);
@@ -25,9 +29,9 @@ export function Countdown() {
         setTime(time - 1);
       }, 1000);
     } else if (isActive && time === 0) {
-      console.log('Fin');
       setHasFinished(true);
       setIsActive(false);
+      startNewChallenge();
     }
   }, [isActive, time]);
 
