@@ -17,6 +17,7 @@
     border-radius: 5px;
     font-size: 8.5rem;
     text-align: center;
+    user-select: none;
 }
 
 .countdownContainer > div span{

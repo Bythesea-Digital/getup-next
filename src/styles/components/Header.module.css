@@ -1,0 +1,14 @@
+.headerContainer{
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerContainer img{
+    width: 6rem;
+}
+
+.headerContainer a img{
+    width: 2rem
+}
