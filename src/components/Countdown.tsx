@@ -2,19 +2,17 @@ import { useContext, useEffect, useState } from 'react';
 
 import styles from '../styles/components/Countdown.module.css';
 
-import { ChallengesContext } from '../contexts/ChallengesContext';
-
-let countdownTimeout: NodeJS.Timeout;
+import { CountdownContext } from '../contexts/CountdownContext';
 
 export default function Countdown() {
-  const { startNewChallenge } = useContext(ChallengesContext);
-  const POMODORO_TIME_SECONDS = 0.1 * 60;
-  const [time, setTime] = useState(POMODORO_TIME_SECONDS);
-  const [isActive, setIsActive] = useState(false);
-  const [hasFinished, setHasFinished] = useState(false);
-
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
+  const {
+    minutes,
+    seconds,
+    isActive,
+    hasFinished,
+    startCountdown,
+    resetCountdown
+  } = useContext(CountdownContext);
 
   const [minuteLeft, minuteRight] = String(minutes)
     .padStart(2, '0')
@@ -22,28 +20,6 @@ export default function Countdown() {
   const [secondLeft, secondRight] = String(seconds)
     .padStart(2, '0')
     .split('');
-
-  useEffect(() => {
-    if (isActive && time > 0) {
-      countdownTimeout = setTimeout(() => {
-        setTime(time - 1);
-      }, 1000);
-    } else if (isActive && time === 0) {
-      setHasFinished(true);
-      setIsActive(false);
-      startNewChallenge();
-    }
-  }, [isActive, time]);
-
-  function startCountdown() {
-    setIsActive(true);
-  }
-
-  function resetCountdown() {
-    clearTimeout(countdownTimeout);
-    setIsActive(false);
-    setTime(POMODORO_TIME_SECONDS);
-  }
 
   return (
     <div>
