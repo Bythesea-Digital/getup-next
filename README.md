@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e3799048-52a3-44f8-b57c-6aa98226b57e/deploy-status)](https://app.netlify.com/sites/getup-bythesea/deploys)
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
