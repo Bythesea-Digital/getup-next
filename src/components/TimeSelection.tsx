@@ -1,5 +1,5 @@
 import styles from '../styles/components/TimeSelection.module.css';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CountdownContext } from '../contexts/CountdownContext';
 
 export default function TimeSelection() {
@@ -12,6 +12,12 @@ export default function TimeSelection() {
     setSelectedMinute(value);
     selectTime({ selectedMinute: value });
   }
+
+  useEffect(() => {
+    if (hasFinished) {
+      setSelectedMinute(String(25));
+    }
+  }, [hasFinished]);
 
   if (isActive || hasFinished) return null;
   return (
