@@ -33,7 +33,7 @@ export default function Home({
         <CountdownProvider>
           <section>
             <div>
-              <Profile />
+              {/*<Profile />*/}
               <CompletedChallenges />
               <Countdown />
             </div>
@@ -49,7 +49,6 @@ export default function Home({
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
-
   return {
     props: {
       level: Number(level),

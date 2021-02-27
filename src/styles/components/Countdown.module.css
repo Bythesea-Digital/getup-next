@@ -8,7 +8,7 @@
 
 }
 
-.countdownContainer > div{
+.countdownContainer .timeCard{
     flex: 1;
 
     display: flex;
@@ -21,15 +21,15 @@
     text-align: center;
 }
 
-.countdownContainer > div span{
+.countdownContainer .timeCard span{
     flex: 1;
 }
 
-.countdownContainer > div span:first-child{
+.countdownContainer .timeCard span:first-child{
     border-right:  1px solid #f0f1f3;
 }
 
-.countdownContainer > div span:last-child{
+.countdownContainer .timeCard span:last-child{
     border-left:  1px solid #f0f1f3;
 }
 
@@ -71,6 +71,17 @@
 .countdownButtonActive{
     background: var(--white);
     color: var(--title);
+}
+
+.progressBarButton{
+    display: flex;
+    flex:1;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--green);
+    position: relative;
+    bottom: 3px;
+    transition: all 1s;
 }
 
 .countdownButtonActive:not(:disabled):hover{

@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import styles from '../styles/components/Countdown.module.css';
 
 import { CountdownContext } from '../contexts/CountdownContext';
+import TimeSelection from './TimeSelection';
 
 export default function Countdown() {
   const {
@@ -11,7 +12,8 @@ export default function Countdown() {
     isActive,
     hasFinished,
     startCountdown,
-    resetCountdown
+    resetCountdown,
+    timeCompletedPercentage
   } = useContext(CountdownContext);
 
   const [minuteLeft, minuteRight] = String(minutes)
@@ -23,13 +25,14 @@ export default function Countdown() {
 
   return (
     <div>
+      <TimeSelection />
       <div className={styles.countdownContainer}>
-        <div>
+        <div className={styles.timeCard}>
           <span>{minuteLeft}</span>
           <span>{minuteRight}</span>
         </div>
         <span>:</span>
-        <div>
+        <div className={styles.timeCard}>
           <span>{secondLeft}</span>
           <span>{secondRight}</span>
         </div>
@@ -42,13 +45,19 @@ export default function Countdown() {
       ) : (
         <>
           {isActive ? (
-            <button
-              onClick={resetCountdown}
-              type="button"
-              className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
-            >
-              Abandonar ciclo
-            </button>
+            <>
+              <button
+                onClick={resetCountdown}
+                type="button"
+                className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
+              >
+                Abandonar ciclo
+              </button>
+              <span
+                style={{ width: `${timeCompletedPercentage}%` }}
+                className={styles.progressBarButton}
+              />
+            </>
           ) : (
             <button
               onClick={startCountdown}

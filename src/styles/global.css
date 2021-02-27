@@ -15,6 +15,7 @@
     --blue: #1838d0;
     --blue-dark: #061644;
     --blue-twitter: #2aa9e0;
+    --box-shadow: 0 0 60px rgba(0,0,0,0.05);
 }
 
 @media(max-width: 1080px){

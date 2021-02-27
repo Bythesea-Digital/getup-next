@@ -32,4 +32,6 @@ span.currentExperience{
     font-weight: 600;
     min-width: 200px;
     text-align: center;
+    transition: all 0.9s;
+
 }

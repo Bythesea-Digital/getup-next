@@ -1,0 +1,49 @@
+.timeSelectionContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.timeSelectionContainer p {
+    margin: 1rem 0 0;
+    color: var(--blue-dark);
+}
+
+.timeSelection{
+    justify-content: space-between;
+    margin: 2rem 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 1rem;
+}
+
+.timeSelection button {
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    border-radius: 5px;
+
+    background: var(--white);
+    border: 0;
+    box-shadow: var(--box-shadow);
+    color: var(--blue-dark);
+    font-weight: 600;
+
+    transition: all 0.3s;
+}
+
+.timeSelection button:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.timeSelection button:focus{
+    outline-color: var(--blue-dark);
+}
+
+.timeSelection button.selected{
+    background: var(--blue);
+    color: var(--white);
+    outline-color: var(--blue-dark);
+}
