@@ -5,7 +5,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>GetUp - Bythesea Digital</title>
           <link rel="icon" type="image/png" href="favicon.png" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

@@ -1,12 +1,14 @@
+import Head from 'next/head';
 import '../styles/global.css';
-
-import { ChallengesProvider } from '../contexts/ChallengesContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChallengesProvider>
+    <>
+      <Head>
+        <title>GetUp - Bythesea Digital</title>
+      </Head>
       <Component {...pageProps} />
-    </ChallengesProvider>
+    </>
   );
 }
 
