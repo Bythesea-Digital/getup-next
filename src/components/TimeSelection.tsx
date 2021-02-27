@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { CountdownContext } from '../contexts/CountdownContext';
 
 export default function TimeSelection() {
-  const { selectTime, isActive } = useContext(CountdownContext);
+  const { selectTime, isActive, hasFinished } = useContext(CountdownContext);
 
   const [selectedMinute, setSelectedMinute] = useState<string>(String(25));
 
@@ -13,7 +13,7 @@ export default function TimeSelection() {
     selectTime({ selectedMinute: value });
   }
 
-  if (isActive) return null;
+  if (isActive || hasFinished) return null;
   return (
     <div className={styles.timeSelectionContainer}>
       <p>¿De cuantos minutos quieres el ciclo?</p>
